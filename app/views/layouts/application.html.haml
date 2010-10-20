@@ -1,0 +1,17 @@
+!!!
+%html
+	%head
+		%title= App::Application.config.app_title
+		= stylesheet_link_tag "reset", "grid", "application"
+		%script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" }
+		= javascript_include_tag "application"
+		= csrf_meta_tag
+	%body
+		.header
+			HEADER
+		.nav
+			NAV
+		.main
+			= yield
+		.footer
+			FOOTER
