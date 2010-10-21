@@ -1,17 +1,37 @@
-!!!
+!!! Strict
 %html
 	%head
 		%title= App::Application.config.app_title
-		= stylesheet_link_tag "reset", "grid", "application"
+		= stylesheet_link_tag "reset", "application"
 		%script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" }
 		= javascript_include_tag "application"
 		= csrf_meta_tag
 	%body
 		.header
-			HEADER
-		.nav
-			NAV
+			.title= App::Application.config.app_title
+			- if user_signed_in?
+				.login
+					=current_user.email
+					=link_to "(sign out)", destroy_user_session_path
+			- else	
+				.login= link_to "Sign in", new_user_session_path
+			.clear
+		.menu
+			%ul
+				%li=link_to "Home", root_url, :class => current_page?(root_url) ? "selected" : ""
+				- Page.all.each do |page|
+					%li= link_to page.title, friendly_page_path(:slug => page.slug)
+				- if is_admin?
+					%li= link_to "[+page]", new_page_path
+			.clear
 		.main
+		
+			- unless notice.blank?
+				%p.notice=notice 
+			- unless alert.blank?
+				%p.alert=alert 
+			
 			= yield
 		.footer
-			FOOTER
+			= "Copyright #{Time.now.year} -" 
+			= link_to "Feedback/Support", new_feedback_path

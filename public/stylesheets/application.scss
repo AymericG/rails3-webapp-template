@@ -1,0 +1,350 @@
+$width: 940px;   /* total with of page */
+$columns: 12;    /* number of columns */
+$col_margin: 20px;  /* margin between columns */
+
+/* math magic */
+$col_width: ($width - ($col_margin * ($columns - 1))) / $columns;
+$col_total_width: $col_width + $col_margin;  
+
+/* create row div */
+@mixin row() {
+  float: left;
+  clear: both;
+  width: $width;
+}
+
+/* create a column div */
+@mixin col($n: 1) {
+  float: left;
+  @include span($n);
+}
+
+/* make an element span n columns */
+@mixin span($n: 1) {
+  width: ($n * $col_width) + (($n - 1) * $col_margin);
+  @if $n == $columns {
+    margin-right: 0;
+  } @else {
+    margin-right: $col_margin;
+  }
+}
+
+/* the last column in a row needs this */
+@mixin last() {
+  margin-right: 0;
+}
+
+/* the first column in a row needs this */
+@mixin first() {
+  margin-left: 0;
+}
+
+/* prepend n blank columns  */
+@mixin prepend($n: 1) {
+  margin-left: $col_total_width * $n
+}
+
+/* append n blank columns */
+@mixin append($n: 1) {
+  margin-right: $col_total_width * $n + $col_margin
+}
+
+@mixin grid()
+{
+	margin:0 auto;
+	width: $width - $col_margin * 2;
+	padding:10px $col_margin;
+}
+
+$backgroundColor1:#B6B7BC; // grey
+
+$backgroundColor2:#4A6D9F; // logo background blue
+$foreColor2:#fff; // white
+$foreColor2Hover:#FEC00F;
+
+$linkHover:#FF8C00;
+
+$backgroundColor3:#3A4F63; // darkblue
+$foreColor3:$foreColor2; // white
+
+$contentBackground:#fff;
+
+$fadeOutColor1: #666;
+
+$alertBackgroundColor:#FCC;
+$alertBorderColor:#C66;
+
+.clear
+{
+	clear:both;
+}
+
+body
+{
+	background-color:$backgroundColor1;
+	font-family: Georgia, 'Century Schoolbook L', serif;
+	font-size:14px;
+}
+
+a
+{
+	color:$backgroundColor2;
+	text-decoration:none;
+}
+
+	a:hover
+	{
+		color:$linkHover;
+	}
+
+
+.notice, .alert 
+{
+   padding: 5px 8px;
+   margin: 10px 0;
+}
+
+.notice 
+{
+   background-color: #CFC;
+   border: solid 1px #6C6;
+}
+
+
+.alert
+{
+  background-color: $alertBackgroundColor;
+  border: solid 1px $alertBorderColor;
+}
+
+#error_explanation 
+{
+  width: 400px;
+  border: 1px solid $alertBorderColor;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+	#error_explanation h2 {
+	  text-align: left;
+	  font-weight: normal;
+	  padding: 5px 5px 5px 15px;
+	  font-size: 12px;
+	  margin: 0;
+	  color:Black;
+	  background-color: $alertBackgroundColor;
+	}
+
+	#error_explanation p {
+	  color: #333;
+	  margin-bottom: 0;
+	  padding: 8px;
+	}
+
+	#error_explanation ul {
+	  margin: 10px 24px 0 24px;
+	}
+
+	#error_explanation ul li {
+	  font-size: 12px;
+	  list-style: disc;
+	}
+
+label
+{
+	font-weight:bold;
+}
+
+.field
+{
+	margin-bottom:10px;
+}
+
+.field_with_errors 
+{
+  display: inline;
+  color:Red;
+}
+
+input[type=button], input[type=submit]{
+    margin:0 7px 0 0;
+  
+
+		border:1px solid #999;
+    border-top:1px solid #ddd;
+    border-left:1px solid #ddd;
+
+    background-color:#f5f5f5;
+    color:#529214;
+
+    font-family:"Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+    font-size:12px;
+    line-height:130%;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+    padding:5px 10px 6px 7px; /* Links */
+}
+
+input[type=button], input[type=submit]{
+    width:auto;
+    overflow:visible;
+    padding:4px 10px 3px 7px; /* IE6 */
+}
+
+input[type=button]:hover, input[type=submit]:hover
+{
+    background-color:#E6EFC2;
+    border:1px solid #C6D880;
+    color:#529214;
+}
+
+
+.header, .menu, .main, .footer
+{
+	@include grid();
+}
+
+.header
+{
+	background-color:$backgroundColor2;
+	margin-top:30px;
+	border-width:1px 1px 0px 1px;
+	border-color:$backgroundColor3;
+	border-style:solid;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+}
+
+	.header .title
+	{
+		color:$foreColor2;
+		font-size:38px;
+		@include col(6);
+	}
+	
+	.header .login
+	{
+		@include col(5);
+		color:#fff;
+		line-height:38px;
+		text-align:right;
+	}
+	
+	.header .login a
+	{
+		color:$foreColor2;
+		text-decoration:none;
+	}
+	
+	.header .login a:hover
+	{
+		color:$foreColor2Hover;
+	}
+	
+
+.menu
+{
+	background-color:$backgroundColor3;
+	color:$foreColor3;
+	border-width:0px 1px 0px 1px;
+	border-color:$backgroundColor3;
+	border-style:solid;
+	padding:0px $col_margin;
+}
+
+	.menu ul
+	{
+		list-style:none;
+		margin:0;
+		padding:0;
+		width:auto;
+	}
+
+	.menu ul li
+	{
+		float:left;
+		margin-top:5px;
+		padding:8px 2px 8px 2px;
+	}
+
+	.menu ul li a, .menu ul li a:visited
+	{
+		background-color: #465c71;
+		border-width: 1px 1px 0px 1px;
+		border-style:solid;
+		border-color:#4e667d;
+		color: $foreColor3;
+		padding: 6px 20px;
+		text-decoration: none;
+	}
+
+	.menu ul li a.selected
+	{
+		background-color: White;
+		color: #465c71;
+		font-weight:bold;
+		text-decoration: none;
+	}
+
+
+	.menu ul li a:hover
+	{
+		background-color: #bfcbd6;
+		color: #465c71;
+		text-decoration: none;
+	}
+
+	.menu ul li a:active
+	{
+		background-color: #465c71;
+		color: #cfdbe6;
+		text-decoration: none;
+	}
+
+.main
+{
+	background-color:$contentBackground;
+
+	border-width:0px 1px 1px 1px;
+	border-color:$backgroundColor3;
+	border-style:solid;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+	min-height:400px;
+}
+
+.footer
+{
+	color:$fadeOutColor1;
+}
+
+h1
+{
+	font-size:32px;
+	color:$backgroundColor2;
+	font-weight:400;
+	margin:10px 0 20px 0;
+}
+
+h2
+{
+	font-size:24px;
+	color:$backgroundColor3;
+	font-weight:400;
+	margin:10px 0 20px 0;
+}
+
+p
+{
+	margin:10px 0;
+}
+
+	p.highlight
+	{
+		color:$fadeOutColor1;
+		font-size:18px;
+	}
+

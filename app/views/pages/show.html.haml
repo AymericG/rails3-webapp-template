@@ -1,0 +1,9 @@
+%h1= @page.title
+- if is_admin?
+	%p
+		= link_to t('edit'), edit_page_path(@page)
+		|
+		= link_to t('destroy'), @page, :confirm => t('are_you_sure'), :method => :delete
+
+= simple_format @page.text
+

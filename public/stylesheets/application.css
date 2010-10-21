@@ -1,6 +1,214 @@
-.header, .nav, .main, .footer
-{
-	margin-left: auto;
-	margin-right: auto;
-	width: 960px;
-}
+/* total with of page */
+/* number of columns */
+/* margin between columns */
+/* math magic */
+/* create row div */
+/* create a column div */
+/* make an element span n columns */
+/* the last column in a row needs this */
+/* the first column in a row needs this */
+/* prepend n blank columns  */
+/* append n blank columns */
+.clear {
+  clear: both; }
+
+body {
+  background-color: #b6b7bc;
+  font-family: Georgia, 'Century Schoolbook L', serif;
+  font-size: 14px; }
+
+a {
+  color: #4a6d9f;
+  text-decoration: none; }
+
+a:hover {
+  color: #ff8c00; }
+
+.notice, .alert {
+  padding: 5px 8px;
+  margin: 10px 0; }
+
+.notice {
+  background-color: #CFC;
+  border: solid 1px #6C6; }
+
+.alert {
+  background-color: #ffcccc;
+  border: solid 1px #cc6666; }
+
+#error_explanation {
+  width: 400px;
+  border: 1px solid #cc6666;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: normal;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  color: Black;
+  background-color: #ffcccc; }
+
+#error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px; }
+
+#error_explanation ul {
+  margin: 10px 24px 0 24px; }
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: disc; }
+
+label {
+  font-weight: bold; }
+
+.field {
+  margin-bottom: 10px; }
+
+.field_with_errors {
+  display: inline;
+  color: Red; }
+
+input[type=button], input[type=submit] {
+  margin: 0 7px 0 0;
+  border: 1px solid #999;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  background-color: #f5f5f5;
+  color: #529214;
+  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size: 12px;
+  line-height: 130%;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px 6px 7px;
+  /* Links */ }
+
+input[type=button], input[type=submit] {
+  width: auto;
+  overflow: visible;
+  padding: 4px 10px 3px 7px;
+  /* IE6 */ }
+
+input[type=button]:hover, input[type=submit]:hover {
+  background-color: #E6EFC2;
+  border: 1px solid #C6D880;
+  color: #529214; }
+
+.header, .menu, .main, .footer {
+  margin: 0 auto;
+  width: 900px;
+  padding: 10px 20px; }
+
+.header {
+  background-color: #4a6d9f;
+  margin-top: 30px;
+  border-width: 1px 1px 0px 1px;
+  border-color: #3a4f63;
+  border-style: solid;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px; }
+
+.header .title {
+  color: white;
+  font-size: 38px;
+  float: left;
+  width: 460px;
+  margin-right: 20px; }
+
+.header .login {
+  float: left;
+  width: 380px;
+  margin-right: 20px;
+  color: #fff;
+  line-height: 38px;
+  text-align: right; }
+
+.header .login a {
+  color: white;
+  text-decoration: none; }
+
+.header .login a:hover {
+  color: #fec00f; }
+
+.menu {
+  background-color: #3a4f63;
+  color: white;
+  border-width: 0px 1px 0px 1px;
+  border-color: #3a4f63;
+  border-style: solid;
+  padding: 0px 20px; }
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: auto; }
+
+.menu ul li {
+  float: left;
+  margin-top: 5px;
+  padding: 8px 2px 8px 2px; }
+
+.menu ul li a, .menu ul li a:visited {
+  background-color: #465c71;
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;
+  border-color: #4e667d;
+  color: white;
+  padding: 6px 20px;
+  text-decoration: none; }
+
+.menu ul li a.selected {
+  background-color: White;
+  color: #465c71;
+  font-weight: bold;
+  text-decoration: none; }
+
+.menu ul li a:hover {
+  background-color: #bfcbd6;
+  color: #465c71;
+  text-decoration: none; }
+
+.menu ul li a:active {
+  background-color: #465c71;
+  color: #cfdbe6;
+  text-decoration: none; }
+
+.main {
+  background-color: white;
+  border-width: 0px 1px 1px 1px;
+  border-color: #3a4f63;
+  border-style: solid;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  min-height: 400px; }
+
+.footer {
+  color: #666666; }
+
+h1 {
+  font-size: 32px;
+  color: #4a6d9f;
+  font-weight: 400;
+  margin: 10px 0 20px 0; }
+
+h2 {
+  font-size: 24px;
+  color: #3a4f63;
+  font-weight: 400;
+  margin: 10px 0 20px 0; }
+
+p {
+  margin: 10px 0; }
+
+p.highlight {
+  color: #666666;
+  font-size: 18px; }
